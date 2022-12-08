@@ -1,58 +1,59 @@
 package com.example.currencyconverter
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
+import android.util.Log
+import com.google.gson.Gson
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
-import android.view.MenuItem
 import com.example.currencyconverter.databinding.ActivityMainBinding
+import java.io.InputStreamReader
+import java.net.URL
+import javax.net.ssl.HttpsURLConnection
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        // Se coloca como comentario, cambio por usar viewbinding.
+        // setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar)
+        // Invocar el método para equivalencia de monedas.
+        getCurrencyData().start()
+    }
 
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
+    private fun getCurrencyData(): Thread
+    {
+        return Thread {
+            val url = URL("https://open.er-api.com/v6/latest/mxn")
+            val connection = url.openConnection() as HttpsURLConnection
 
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+            Log.d("Resultado Petición: ", connection.responseCode.toString())
+
+            if(connection.responseCode == 200) {
+                val inputSystem = connection.inputStream
+                val inputStreamReader = InputStreamReader(inputSystem, "UTF-8")
+                val request = Gson().fromJson(inputStreamReader, Request::class.java)
+                updateUI(request)
+                inputStreamReader.close()
+                inputSystem.close()
+            }
+            else {
+                binding.textMonedaBase.text = "PROBLEMA EN CONEXIÓN"
+            }
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
+    private fun updateUI(request: Request)
+    {
+        runOnUiThread {
+            kotlin.run {
+                binding.textUltimActualizacion.text = request.time_last_update_utc
+                binding.textMonedaEuro.text = String.format("EUR: %.2f", request.rates.EUR)
+                binding.textMonedaDolar.text = String.format("USD: %.2f", request.rates.USD)
+                binding.textMonedaLibra.text = String.format("GBP: %.2f", request.rates.GBP)
+            }
         }
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfiguration)
-                || super.onSupportNavigateUp()
     }
 }
