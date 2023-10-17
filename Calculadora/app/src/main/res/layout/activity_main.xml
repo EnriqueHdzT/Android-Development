@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/resultado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textAlignment="textEnd"
+        android:textSize="80sp"
+        app:layout_constraintBottom_toTopOf="@id/segundo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/segundo"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        >
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/igual"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/boton_redondo2"
+            android:text="="
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/punto"
+            app:layout_constraintTop_toBottomOf="@id/mas" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/mas"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/boton_redondo2"
+            android:text="+"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/igual"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tres"
+            app:layout_constraintTop_toBottomOf="@id/menos" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/menos"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/boton_redondo2"
+            android:text="-"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/mas"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/seis"
+            app:layout_constraintTop_toBottomOf="@id/multiplicacion" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/multiplicacion"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/boton_redondo2"
+            android:text="*"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/menos"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/nueve"
+            app:layout_constraintTop_toBottomOf="@id/division" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/division"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/boton_redondo2"
+            android:text="/"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/multiplicacion"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/parCierra"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cambio"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/boton_redondo2"
+            android:text="--"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/cero"
+            app:layout_constraintEnd_toStartOf="@id/cero"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/punto"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/boton_redondo2"
+            android:text="."
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/igual"
+            app:layout_constraintEnd_toStartOf="@id/igual"
+            app:layout_constraintStart_toEndOf="@id/cero" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cero"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/boton_redondo1"
+            android:text="0"
+            android:textSize="30sp"
+            android:textStyle="bold"
+
+            app:layout_constraintBottom_toBottomOf="@id/punto"
+            app:layout_constraintEnd_toStartOf="@id/punto"
+            app:layout_constraintStart_toEndOf="@id/cambio" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/uno"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/boton_redondo1"
+            android:text="1"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/dos"
+            app:layout_constraintEnd_toStartOf="@+id/dos"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/dos"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/boton_redondo1"
+            android:text="2"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/tres"
+            app:layout_constraintEnd_toStartOf="@id/tres"
+            app:layout_constraintStart_toEndOf="@id/uno" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/tres"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/boton_redondo1"
+            android:text="3"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/mas"
+            app:layout_constraintEnd_toStartOf="@id/mas"
+            app:layout_constraintStart_toEndOf="@id/dos" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cuatro"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/boton_redondo1"
+            android:text="4"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/cinco"
+            app:layout_constraintEnd_toStartOf="@id/cinco"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cinco"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/boton_redondo1"
+            android:text="5"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/seis"
+            app:layout_constraintEnd_toStartOf="@id/seis"
+            app:layout_constraintStart_toEndOf="@id/cuatro" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/seis"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/boton_redondo1"
+            android:text="6"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/menos"
+            app:layout_constraintEnd_toStartOf="@id/menos"
+            app:layout_constraintStart_toEndOf="@id/cinco" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/siete"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/boton_redondo1"
+            android:text="7"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/ocho"
+            app:layout_constraintEnd_toStartOf="@id/ocho"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/ocho"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/boton_redondo1"
+            android:text="8"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/nueve"
+            app:layout_constraintEnd_toStartOf="@id/nueve"
+            app:layout_constraintStart_toEndOf="@id/siete" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/nueve"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/boton_redondo1"
+            android:text="9"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/multiplicacion"
+            app:layout_constraintEnd_toStartOf="@id/multiplicacion"
+            app:layout_constraintStart_toEndOf="@id/ocho" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/borrar"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/boton_redondo3"
+            android:text="C"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/parAbre"
+            app:layout_constraintEnd_toStartOf="@id/parAbre"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/parAbre"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/boton_redondo2"
+            android:text="("
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/parCierra"
+            app:layout_constraintEnd_toStartOf="@id/parCierra"
+            app:layout_constraintStart_toEndOf="@id/borrar" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/parCierra"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/boton_redondo2"
+            android:text=")"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/division"
+            app:layout_constraintEnd_toStartOf="@id/division"
+            app:layout_constraintStart_toEndOf="@id/parAbre" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
