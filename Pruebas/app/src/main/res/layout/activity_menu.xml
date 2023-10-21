@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".misapps.MenuActivity"
+    android:layout_margin="20sp"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/appNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="App Nombre"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20sp"
+        />
+
+    <Button
+        android:id="@+id/appIMC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="App IMC"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="15sp"
+        />
+
+    <Button
+        android:id="@+id/appTODO"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="App TODO"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20sp"
+        />
+
+</LinearLayout>
